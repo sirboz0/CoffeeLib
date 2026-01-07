@@ -10,7 +10,8 @@ public class Window {
 
 
     private boolean open;
-    private long glfwWindow;
+    // window temporarly public
+    public long glfwWindow;
 
     Window(int width, int height, String title){
         this.width = width;
@@ -45,11 +46,19 @@ public class Window {
 
 
     // takes a sprite object
-    void drawSprite(Sprite spriteToDraw){
 
-    }
-    void drawRect(){
-
+    // draws a rectangle to the screen
+    void draw(Rect rect){
+        if (rect instanceof Rect){
+            // draw just rect just normal draw
+            HandyFuncs.updateMatrix(rect.modelMatrix, glGetUniformLocation(rect.prog, "modelMatrix"));
+            glUseProgram(rect.prog);
+            glBindVertexArray(rect.vao);
+            glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+        }else if (rect instanceof Sprite){
+            Sprite sprite = (Sprite)rect;
+            // draw sprite rect WITH textures
+        }
     }
 
     void update(){
