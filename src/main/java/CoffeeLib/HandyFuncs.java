@@ -1,4 +1,4 @@
-package main;
+package CoffeeLib;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -12,14 +12,6 @@ import java.nio.file.Path;
 import org.joml.Matrix4f;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.system.MemoryStack;
-
-import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.FloatBuffer;
-import java.nio.IntBuffer;
-import java.nio.file.Files;
-import java.nio.file.Path;
-
 
 
 import static org.lwjgl.opengl.GL46.*;

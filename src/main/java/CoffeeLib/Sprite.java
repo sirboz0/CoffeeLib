@@ -1,6 +1,4 @@
-package main;
-import main.Rect;
-import main.Texture;
+package CoffeeLib;
 
 // an rect that has a texture on it
 public class Sprite extends Rect {

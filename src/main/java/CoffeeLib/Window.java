@@ -1,4 +1,4 @@
-package main;
+package CoffeeLib;
 
 import org.lwjgl.opengl.GL;
 
@@ -69,5 +69,16 @@ public class Window {
     void clearBackground(float r, float g, float b, float a){
         glClear(GL_COLOR_BUFFER_BIT);
         glClearColor(r, g, b, a);
+    }
+    void setResizable(boolean resizable){
+        if (resizable){
+            glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
+        }else {
+            glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+        }
+    }
+
+    void setWindowSize(int width, int height){
+        glfwSetWindowSize(glfwWindow, width, height);
     }
 }

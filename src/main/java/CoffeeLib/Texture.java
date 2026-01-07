@@ -1,4 +1,4 @@
-package main;
+package CoffeeLib;
 
 
 // a class that contains an image for a sprite

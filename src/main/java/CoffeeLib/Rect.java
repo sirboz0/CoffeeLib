@@ -1,7 +1,6 @@
-package main;
+package CoffeeLib;
 
 import org.joml.Matrix4f;
-import org.lwjgl.opengl.GL;
 
 import static org.lwjgl.opengl.GL46.*;
 
@@ -30,17 +29,17 @@ public class Rect {
     private float angle;
 
 
-    int vao = HandyFuncs.makeVao();
-    int vbo = HandyFuncs.makeBuffer(GL_ARRAY_BUFFER);
-    int ebo = HandyFuncs.makeBuffer(GL_ELEMENT_ARRAY_BUFFER);
+    protected int vao = HandyFuncs.makeVao();
+    protected int vbo = HandyFuncs.makeBuffer(GL_ARRAY_BUFFER);
+    protected int ebo = HandyFuncs.makeBuffer(GL_ELEMENT_ARRAY_BUFFER);
 
     // sprite class will have different shaders
     protected String vshadersrc = HandyFuncs.loadShader("src/main/shaders/vertexShader.glsl");
     protected String fshadersrc = HandyFuncs.loadShader("src/main/shaders/fragmentShader.glsl");
 
-    int fshader = HandyFuncs.createShader(GL_FRAGMENT_SHADER, fshadersrc);
-    int vshader = HandyFuncs.createShader(GL_VERTEX_SHADER, vshadersrc);
-    int prog = HandyFuncs.createProgram(fshader, vshader);
+    protected int fshader = HandyFuncs.createShader(GL_FRAGMENT_SHADER, fshadersrc);
+    protected int vshader = HandyFuncs.createShader(GL_VERTEX_SHADER, vshadersrc);
+    protected int prog = HandyFuncs.createProgram(fshader, vshader);
 
     Matrix4f modelMatrix = HandyFuncs.makeMatrix(prog, "modelMatrix");
 
@@ -88,6 +87,11 @@ public class Rect {
         this.angle = angle;
         modelMatrix.rotationX(angle);
     }
+
+    void move(float x, float y){
+        modelMatrix.translate(x, y, 0.0f);
+    }
+
     float getAngle(){
         return this.angle;
     }

@@ -1,8 +1,7 @@
-package main;
+package CoffeeLib;
 
-import main.Window;
-import static org.lwjgl.opengl.GL46.*;
-import static org.lwjgl.glfw.GLFW.*;
+import CoffeeLib.Window;
+
 public class TestMain {
     static void main(String[] args) {
 
