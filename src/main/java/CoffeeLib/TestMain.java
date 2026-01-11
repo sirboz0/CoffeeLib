@@ -8,15 +8,19 @@ public class TestMain {
         Window window = new Window(1000, 800, "cool window");
         window.open();
 
+        // testing example using angle
+        // angle is broken, the rect faces up when rotating aaaaaaaaa
+        Rect rect = new Rect(0.0f, 0.0f, 0.5f, 0.2f);
+        float e = 0.0f;
 
-        Rect rect = new Rect(0.0f, 0.0f, 0.1f, 0.3f);
-        //rect.setAngle(50.0f);
         Input input = new Input(window);
         while (!window.WindowShouldClose()){
             window.clearBackground(0.3f, 0.5f, 0.4f, 1.0f);
 
             window.draw(rect);
-
+            e += 0.1f;
+            rect.setAngle(e);
+            if (e >= 360) e = 0.0f;
             window.update();
         }
 

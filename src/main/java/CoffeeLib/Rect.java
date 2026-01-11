@@ -1,6 +1,7 @@
 package CoffeeLib;
 
 import org.joml.Matrix4f;
+import org.joml.Vector3f;
 
 import static org.lwjgl.opengl.GL46.*;
 
@@ -85,7 +86,12 @@ public class Rect {
 
     void setAngle(float angle){
         this.angle = angle;
-        modelMatrix.rotationX(angle);
+        float rad = (float)Math.toRadians(angle);
+        //modelMatrix.rotationX(angle);
+        modelMatrix.identity();
+        setSize(this.width, this.height);
+        setPosition(this.x, this.y);
+        modelMatrix.rotate(rad, new Vector3f(0.0f, 0.0f, 1.0f));
     }
 
     void move(float x, float y){
