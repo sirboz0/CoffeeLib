@@ -4,8 +4,10 @@ package CoffeeLib;
 public class Sprite extends Rect {
 
 
-    Sprite(Texture texture, float x, float y, float width, float height){
+    String texture;
+    Sprite(String texturePath, float x, float y, float width, float height){
         super(x, y, width, height);
+
     }
 
 }

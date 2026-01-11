@@ -11,13 +11,11 @@ public class TestMain {
 
         Rect rect = new Rect(0.0f, 0.0f, 0.1f, 0.3f);
         //rect.setAngle(50.0f);
-
+        Input input = new Input(window);
         while (!window.WindowShouldClose()){
             window.clearBackground(0.3f, 0.5f, 0.4f, 1.0f);
 
-
             window.draw(rect);
-
 
             window.update();
         }
