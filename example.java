@@ -1,4 +1,4 @@
-package CoffeeLib;
+package Main;
 
 import CoffeeLib.Window;
 import CoffeeLib.Rect;
