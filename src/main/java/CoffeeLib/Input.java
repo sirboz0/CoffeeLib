@@ -63,8 +63,8 @@ public class Input {
     public static final int KEY_Y = 89;
     public static final int KEY_Z = 90;
 
-    Input(Window window){
-        this.glfwWindow = window.glfwWindow;
+    public Input(Window window){
+        this.glfwWindow = window.getGlfwWindow();
     }
 
     boolean isKeyPressed(int key){

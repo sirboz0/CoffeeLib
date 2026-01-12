@@ -4,6 +4,7 @@ import org.lwjgl.opengl.GL;
 
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL46.*;
+
 public class Window {
     int width, height;
     String title;
@@ -11,9 +12,9 @@ public class Window {
 
     private boolean open;
     // window temporarly public
-    public long glfwWindow;
+    private long glfwWindow;
 
-    Window(int width, int height, String title){
+    public Window(int width, int height, String title){
         this.width = width;
         this.height = height;
         this.title = title;
@@ -51,7 +52,7 @@ public class Window {
     void draw(Rect rect){
         if (rect instanceof Rect){
             // draw just rect just normal draw
-            HandyFuncs.updateMatrix(rect.modelMatrix, glGetUniformLocation(rect.prog, "modelMatrix"));
+            HandyFuncs.updateMatrix(rect.getModelMatrix(), glGetUniformLocation(rect.getProgram(), "modelMatrix"));
             glUseProgram(rect.prog);
             glBindVertexArray(rect.vao);
             glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
@@ -81,4 +82,6 @@ public class Window {
     void setWindowSize(int width, int height){
         glfwSetWindowSize(glfwWindow, width, height);
     }
+
+    long getGlfwWindow(){return this.glfwWindow;}
 }

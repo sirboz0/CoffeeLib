@@ -10,8 +10,8 @@ public class TestMain {
 
         // testing example using angle
         // angle is broken, the rect faces up when rotating aaaaaaaaa
-        Rect rect = new Rect(0.0f, 0.0f, 0.3f, 0.3f);
-
+        Rect rect = new Rect(0.0f, 0.0f, 0.6f, 0.6f);
+        rect.setAngle(45.0f);
 
 
         Input input = new Input(window);

@@ -1,12 +1,12 @@
 package CoffeeLib;
-
+// a coffee lib file
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
 
 import static org.lwjgl.opengl.GL46.*;
 
 
-// TOFIX: fix set angle and angle not working it just ruins the rects matrix
+
 
 public class Rect {
     // thoses are vertices and indices for square ONLY
@@ -41,10 +41,9 @@ public class Rect {
     protected int fshader = HandyFuncs.createShader(GL_FRAGMENT_SHADER, fshadersrc);
     protected int vshader = HandyFuncs.createShader(GL_VERTEX_SHADER, vshadersrc);
     protected int prog = HandyFuncs.createProgram(fshader, vshader);
+    private Matrix4f modelMatrix = HandyFuncs.makeMatrix(prog, "modelMatrix");
 
-    Matrix4f modelMatrix = HandyFuncs.makeMatrix(prog, "modelMatrix");
-
-    Rect(float x, float y, float width, float height){
+    public Rect(float x, float y, float width, float height){
         this.x = x;
         this.y = y;
         this.width = width;
@@ -59,16 +58,13 @@ public class Rect {
         glVertexAttribPointer(0, 3, GL_FLOAT, false, 3 * Float.BYTES, 0);
         glEnableVertexAttribArray(0);
 
-        // update rect location using its positions
+        // update rect transform using its given values
         this.setPosition(x, y);
         this.setSize(width, height);
-        // transform works when i remove this?!?!?! bro wtf
-        //this.setAngle(0.0f);
-
-
+        this.setAngle(0.0f);
     }
 
-    // sets the rect's position and updates
+    // sets the rect's position and updates(did it this way so i dont have to use translate and reset mat and make a mess)
     void setPosition(float x, float y){
         this.x = x;
         this.y = y;
@@ -90,10 +86,20 @@ public class Rect {
         // works somehow
         modelMatrix.rotateAffineXYZ(0.0f, 0.0f, rad);
     }
+    // special functions below-------------------------------
 
+    // moves the rectangle every frame at a given xy speed
     void move(float x, float y){
         modelMatrix.translate(x, y, 0.0f);
     }
+
+    // rotates the rectangle every frame at a given speed
+    void rotate(float speed){
+        this.angle += speed;
+        // update angle
+        setAngle(this.angle);
+    }
+    // getters below ----------------------------------------
 
     float getAngle(){
         return this.angle;
@@ -112,4 +118,7 @@ public class Rect {
     float getHeight(){
         return this.height;
     }
+
+    Matrix4f getModelMatrix(){return this.modelMatrix;}
+    int getProgram(){return this.prog;}
 }
