@@ -17,8 +17,8 @@ import org.lwjgl.system.MemoryStack;
 import static org.lwjgl.opengl.GL46.*;
 import static org.lwjgl.stb.STBImage.*;
 
-
-public class HandyFuncs {
+// private low level class has low level functions, to be used ONLY in library.
+class HandyFuncs {
 
         public static class Image{
             ByteBuffer data;

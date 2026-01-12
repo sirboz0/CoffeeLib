@@ -65,7 +65,7 @@ public class Rect {
     }
 
     // sets the rect's position and updates(did it this way so i dont have to use translate and reset mat and make a mess)
-    void setPosition(float x, float y){
+    public void setPosition(float x, float y){
         this.x = x;
         this.y = y;
 
@@ -73,14 +73,14 @@ public class Rect {
         modelMatrix.m31(y);
     }
 
-    void setSize(float width, float height){
+    public void setSize(float width, float height){
         this.width = width;
         this.height = height;
 
         modelMatrix.scale(width, height, 0.0f);
     }
 
-    void setAngle(float angle){
+    public void setAngle(float angle){
         this.angle = angle;
         float rad = (float)Math.toRadians(angle);
         // works somehow
@@ -89,36 +89,36 @@ public class Rect {
     // special functions below-------------------------------
 
     // moves the rectangle every frame at a given xy speed
-    void move(float x, float y){
+    public void move(float x, float y){
         modelMatrix.translate(x, y, 0.0f);
     }
 
     // rotates the rectangle every frame at a given speed
-    void rotate(float speed){
+    public void rotate(float speed){
         this.angle += speed;
         // update angle
         setAngle(this.angle);
     }
     // getters below ----------------------------------------
 
-    float getAngle(){
+    public float getAngle(){
         return this.angle;
     }
 
-    float getxPosition(){
+    public float getxPosition(){
         return this.x;
     }
-    float getyPosition(){
+    public float getyPosition(){
         return this.y;
     }
 
-    float getWidth(){
+    public float getWidth(){
         return this.width;
     }
-    float getHeight(){
+    public float getHeight(){
         return this.height;
     }
 
-    Matrix4f getModelMatrix(){return this.modelMatrix;}
-    int getProgram(){return this.prog;}
+    public Matrix4f getModelMatrix(){return this.modelMatrix;}
+    public int getProgram(){return this.prog;}
 }

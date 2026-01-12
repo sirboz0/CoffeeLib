@@ -32,16 +32,16 @@ public class Window {
         open = false;
     }
     // opens a window (there needs to be a main loop for it to stay open)
-    void open(){
+    public void open(){
         open = true;
     }
-    void close(){
+    public void close(){
         open = false;
         glfwSetWindowShouldClose(glfwWindow, true);
         glfwDestroyWindow(glfwWindow);
     }
 
-    boolean WindowShouldClose(){
+    public boolean WindowShouldClose(){
         return glfwWindowShouldClose(glfwWindow);
     }
 
@@ -49,7 +49,7 @@ public class Window {
     // takes a sprite object
 
     // draws a rectangle to the screen
-    void draw(Rect rect){
+    public void draw(Rect rect){
         if (rect instanceof Rect){
             // draw just rect just normal draw
             HandyFuncs.updateMatrix(rect.getModelMatrix(), glGetUniformLocation(rect.getProgram(), "modelMatrix"));
@@ -62,16 +62,16 @@ public class Window {
         }
     }
 
-    void update(){
+    public void update(){
         glfwPollEvents();
         glfwSwapBuffers(glfwWindow);
     }
 
-    void clearBackground(float r, float g, float b, float a){
+    public void clearBackground(float r, float g, float b, float a){
         glClear(GL_COLOR_BUFFER_BIT);
         glClearColor(r, g, b, a);
     }
-    void setResizable(boolean resizable){
+    public void setResizable(boolean resizable){
         if (resizable){
             glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
         }else {
@@ -79,9 +79,9 @@ public class Window {
         }
     }
 
-    void setWindowSize(int width, int height){
+    public void setWindowSize(int width, int height){
         glfwSetWindowSize(glfwWindow, width, height);
     }
 
-    long getGlfwWindow(){return this.glfwWindow;}
+    public long getGlfwWindow(){return this.glfwWindow;}
 }

@@ -67,7 +67,7 @@ public class Input {
         this.glfwWindow = window.getGlfwWindow();
     }
 
-    boolean isKeyPressed(int key){
+    public boolean isKeyPressed(int key){
         boolean pressed = false;
         if (glfwGetKey(this.glfwWindow, key) == GLFW_PRESS){
             pressed = true;
@@ -75,7 +75,7 @@ public class Input {
         return pressed;
     }
 
-    boolean isKeyReleased(int key){
+    public boolean isKeyReleased(int key){
         boolean released = false;
         if (glfwGetKey(this.glfwWindow, key) == GLFW_RELEASE){
             released = true;
