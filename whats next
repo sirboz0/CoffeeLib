@@ -1,6 +1,7 @@
 whats next to add:
 
-will fix and make angles work in a rect
+will fix and make angles work in a rect (done)
 add sprite and texture
 add input class
 add sounds 
+add more shapes(make rect shape not final)

@@ -10,17 +10,16 @@ public class TestMain {
 
         // testing example using angle
         // angle is broken, the rect faces up when rotating aaaaaaaaa
-        Rect rect = new Rect(0.0f, 0.0f, 0.5f, 0.2f);
-        float e = 0.0f;
+        Rect rect = new Rect(0.0f, 0.0f, 0.3f, 0.3f);
+
+
 
         Input input = new Input(window);
         while (!window.WindowShouldClose()){
             window.clearBackground(0.3f, 0.5f, 0.4f, 1.0f);
 
             window.draw(rect);
-            e += 0.1f;
-            rect.setAngle(e);
-            if (e >= 360) e = 0.0f;
+
             window.update();
         }
 
