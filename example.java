@@ -1,9 +1,10 @@
-package CoffeeLib;
+package Main;
 
 import CoffeeLib.Window;
+import CoffeeLib.Rect;
 // sets up a window and makes new rect and draws it
 public class TestMain {
-    static void main(String[] args) {
+    public static void main(String[] args) {
 
         Window window = new Window(1000, 800, "cool window");
         window.open();
